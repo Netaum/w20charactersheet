@@ -12,27 +12,97 @@
   },
   "attributes": {
     "physical": {
-      "strength": 1,
-      "dexterity": 1,
-      "stamina": 1,
+      "strength": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 3,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
+      "dexterity": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 1,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
+      "stamina": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 1,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
       "total": 3
     },
     "social": {
-      "charisma": 1,
-      "manipulation": 1,
-      "appearance": 1,
+      "charisma": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 1,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
+      "manipulation": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 1,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
+      "appearance": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 1,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
       "total": 3
     },
     "mental": {
-      "perception": 1,
-      "intelligence": 1,
-      "wits": 1,
+      "perception": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 1,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
+      "intelligence": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 1,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
+      "wits": {
+        "startValue": 1,
+        "maxValue": 5,
+        "value": 1,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      },
       "total": 3
     }
   },
   "abilities": {
     "talents": {
-      "alertness": 0
+      "alertness":{
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": 0,
+        "xp": 0
+      }
     },
     "skills": {
       "animal_ken": 0

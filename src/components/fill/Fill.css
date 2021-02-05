@@ -1,0 +1,22 @@
+@font-face {
+    font-family: wod;
+    src:url(../../assets/fonts/wod1.woff)format('woff')
+}
+
+.wod {
+    font-family: wod;
+    cursor: pointer;
+    font-style: normal;
+    font-weight: normal;
+    visibility: visible;
+    color: black;
+    word-spacing: 0.000000px;
+    position: absolute;
+    white-space: pre;
+    transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -webkit-transform-origin: 0 100%;
+    unicode-bidi: bidi-override;
+    z-index: 99;
+    background-color: white;
+}
