@@ -37,8 +37,6 @@ class Fill extends React.Component {
             top: this.top
         };
 
-        console.log(spanStyle);
-
         return (
             <span id={this.props.attributeName}
                 className='wod'
@@ -54,8 +52,6 @@ class Fill extends React.Component {
         return (
             <div>
                 {this.line()}
-                <br />
-                {this.section.value}
             </div>
         );
     }

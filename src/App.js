@@ -8,12 +8,38 @@ import SheetContext from "./contexts/SheetContext";
 class App extends React.Component {
   state = {
     sheet: Sheet,
+    mode: "normal",
     updateState: (state) => this.setState(state),
     changeHeader: this.changeHeader,
     loadSection: this.loadSection,
     changeSection: this.changeSection,
-    fillArray: this.fillArray
+    fillArray: this.fillArray,
+    changeValue: this.changeValue,
+    getPriority: this.getPriority,
+    chageValueNormalMode: this.chageValueNormalMode
   };
+
+  changeFillMode(fillMode) {
+    const v = this;
+    v.mode = fillMode;
+    this.updateState(v);
+  }
+
+  getPriority(totalValue, type) {
+    if (type === "attributes") {
+      if (totalValue <= 6) return 3;
+
+      if (totalValue <= 8) return 5;
+
+      return 7;
+    } else {
+      if (totalValue <= 5) return 3;
+
+      if (totalValue <= 9) return 5;
+
+      return 7;
+    }
+  }
 
   changeHeader(headerName, value) {
     const v = this;
@@ -24,35 +50,107 @@ class App extends React.Component {
   fillArray(section, value) {
     if (section.fill.length <= 0) section.fill = Array(section.maxValue);
     for (let i = 0; i < section.maxValue; i++) {
-      if (i < section.initialValue || i < value) 
-        section.fill[i] = true;
+      if (i < section.initialValue || i < value) section.fill[i] = true;
       else section.fill[i] = false;
     }
   }
 
   loadSection(sectionName, sectionType, sectionAttributeName) {
     const v = this;
+
     let section = v.sheet[sectionName][sectionType][sectionAttributeName];
+
+    section["parent"] = v.sheet[sectionName];
+    section["type"] = v.sheet[sectionName][sectionType];
+    section["sectionName"] = sectionName;
+
     this.fillArray(section, section.value);
     this.updateState(v);
+
     return section;
   }
 
+  chageValueNormalMode(section, selectedValue) {
+    selectedValue =
+      selectedValue >= section.startValue ? selectedValue : section.startValue;
+
+    const currentValue = section.value;
+    let currentTotal = section.type.control.total;
+
+    if (currentValue === selectedValue) return;
+
+    if (selectedValue < currentValue) {
+      const diff = currentValue - selectedValue;
+      currentTotal -= diff;
+
+      section.type.control.priority = this.getPriority(
+        currentTotal,
+        section.sectionName
+      );
+
+      section.value = selectedValue;
+      section.type.control.total = currentTotal;
+
+      return;
+    }
+    let priorityControl = [];
+    for (const prop in section.parent) {
+      priorityControl.push(section.parent[prop].control.priority);
+    }
+
+    if (section.sectionName !== "attributes" && selectedValue > 3) return;
+
+    const diff = selectedValue - section.value;
+
+    currentTotal += diff;
+
+    const maxValue = section.sectionName === "attributes" ? 10 : 13;
+
+    if (currentTotal > maxValue) return;
+
+    const currentPriority = this.getPriority(currentTotal, section.sectionName);
+
+    if (currentPriority <= section.type.control.priority) {
+      section.value = selectedValue;
+      section.type.control.priority = currentPriority;
+    } else {
+      if (
+        (currentPriority === 5 &&
+          priorityControl.filter((f) => f >= 5).length <= 1) ||
+        (currentPriority === 7 &&
+          priorityControl.filter((f) => f === 7).length === 0)
+      ) {
+        section.value = selectedValue;
+        section.type.control.priority = currentPriority;
+      }
+    }
+
+    let totalSection = 0;
+    for (const prop in section.type) {
+      if (prop === "control") continue;
+
+      totalSection += section.type[prop].value;
+    }
+    section.type.control.total = totalSection;
+  }
+
+  changeValue(section, index) {
+    let selectedValue = index + 1;
+
+    if (selectedValue === section.value) selectedValue--;
+
+    if(this.mode === 'normal') {
+      this.chageValueNormalMode(section, selectedValue);
+    }
+  }
+
   changeSection(section, index) {
-
     const v = this;
-    console.log("index: ", index, " value: ", section.value, " array : ", section.fill);
-
-    if(index === section.value - 1)
-      index--;
-
-    const newValue = index + 1;
-    section.value = newValue >= section.startValue ? newValue : section.startValue;
+    this.changeValue(section, index);
 
     this.fillArray(section, section.value);
 
     this.updateState(v);
-
   }
 
   render() {

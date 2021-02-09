@@ -15,28 +15,31 @@
       "strength": {
         "startValue": 1,
         "maxValue": 5,
-        "value": 3,
+        "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
       "dexterity": {
         "startValue": 1,
         "maxValue": 5,
         "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
       "stamina": {
         "startValue": 1,
         "maxValue": 5,
         "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
-      "total": 3
+      "control": {
+        "total": 3,
+        "priority": 3
+      }
     },
     "social": {
       "charisma": {
@@ -44,26 +47,29 @@
         "maxValue": 5,
         "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
       "manipulation": {
         "startValue": 1,
         "maxValue": 5,
         "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
       "appearance": {
         "startValue": 1,
         "maxValue": 5,
         "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
-      "total": 3
+      "control": {
+        "total": 3,
+        "priority": 3
+      }
     },
     "mental": {
       "perception": {
@@ -71,44 +77,289 @@
         "maxValue": 5,
         "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
       "intelligence": {
         "startValue": 1,
         "maxValue": 5,
         "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
       "wits": {
         "startValue": 1,
         "maxValue": 5,
         "value": 1,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
       },
-      "total": 3
+      "control": {
+        "total": 3,
+        "priority": 3
+      }
     }
   },
   "abilities": {
     "talents": {
-      "alertness":{
+      "alertness": {
         "startValue": 0,
         "maxValue": 5,
         "value": 0,
         "fill": [],
-        "bonus": 0,
-        "xp": 0
+        "bonus": [],
+        "xp": []
+      },
+      "athletics": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "brawl": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "empathy": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "expression": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "intimidation": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "leadership": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "primal-urge": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "streetwise": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "subterfuge": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "control": {
+        "total": 0,
+        "priority": 3
       }
     },
     "skills": {
-      "animal_ken": 0
+      "animal_ken": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "crafts": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "drive": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "etiquette": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "firearms": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "larceny": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "melee": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "performance": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "stealth": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "survival": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "control": {
+        "total": 0,
+        "priority": 3
+      }
     },
     "knowledges": {
-      "academics": 0
+      "academics": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "computer": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "enigmas": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "investigation": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "law": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "medicine": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "occult": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "rituals": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "science": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "technology": {
+        "startValue": 0,
+        "maxValue": 5,
+        "value": 0,
+        "fill": [],
+        "bonus": [],
+        "xp": []
+      },
+      "control": {
+        "total": 0,
+        "priority": 3
+      }
     }
   },
   "advantages": {
