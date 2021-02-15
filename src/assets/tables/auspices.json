@@ -1,0 +1,73 @@
+{
+    "ragabash": {
+        "moon_phase": "new_moon",
+        "initial_rage": 1,
+        "beginning_gifts": ["master_of_fire", "persuasion", "smell_of_man"],
+        "initial_renown":[
+            {
+                "name": "glory",
+                "value": 1
+            },
+            {
+                "name": "honor",
+                "value": 1
+            },
+            {
+                "name": "wisdom",
+                "value": 1
+            }
+        ]
+    },
+    "theurge": {
+        "moon_phase": "crescent_moon",
+        "initial_rage": 2,
+        "beginning_gifts": ["mothers_touch", "sense_wyrm", "spirit_speech"],
+        "initial_renown":[
+            {
+                "name": "wisdom",
+                "value": 3
+            }
+        ]
+    },
+    "philodox": {
+        "moon_phase": "half_moon",
+        "initial_rage": 3,
+        "beginning_gifts": ["resist_pain", "scent_of_the_true_form", "truth_of_gaia"],
+        "initial_renown":[
+            {
+                "name": "honor",
+                "value": 3
+            }
+        ]
+    },
+    "galliard": {
+        "moon_phase": "gibbous_moon",
+        "initial_rage": 4,
+        "beginning_gifts": ["beast_speech", "call_of_the_wyld", "mindspeak"],
+        "initial_renown":[
+            {
+                "name": "glory",
+                "value": 2
+            },
+            {
+                "name": "wisdom",
+                "value": 1
+            }
+        ]
+    },
+    "ahroun": {
+        "moon_phase": "full_moon",
+        "initial_rage": 5,
+        "beginning_gifts": ["falling_touch", "inspiration", "razor_claws"],
+        "initial_renown":[
+            {
+                "name": "glory",
+                "value": 2
+            },
+            {
+                "name": "honor",
+                "value": 1
+            }
+        ]
+    }
+}

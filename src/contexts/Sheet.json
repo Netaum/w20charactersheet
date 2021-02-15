@@ -410,13 +410,24 @@
         "total": 0
       }
     },
-    "gifts": [{
+    "gifts":{
+      "itens":[{
       "name":"Falling touch",
       "level": 1,
-      "fill": true,
       "xp": 0,
       "bonus": 0
-    }]
+      }],
+      "control": {
+        "total": {
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0 
+        }
+      }
+    }
   },
   "renown": {
     "glory": {

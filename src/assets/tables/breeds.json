@@ -1,0 +1,14 @@
+{
+    "homid": {
+        "initial_gnosis": 1,
+        "beginning_gifts": ["master_of_fire", "persuasion", "smell_of_man"]
+    },
+    "metis": {
+        "initial_gnosis": 3,
+        "beginning_gifts": ["create_element", "primal_anger", "sense_wyrm"]
+    },
+    "lupus": {
+        "initial_gnosis": 5,
+        "beginning_gifts": ["hares_leap", "heightened_senses", "sense_prey"]
+    }
+}

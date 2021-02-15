@@ -1,0 +1,84 @@
+{
+    "black_furies": {
+        "background_restrictions":[],
+        "tribal_weakness": 1,
+        "initial_willpower": 4,
+        "beginning_gifts": ["breath_of_the wyld", "heightened_senses", "sense_wyrm"]
+    },
+    "bone_gnawers": {
+        "background_restrictions":["ancestors", "pure_breed", "resources"],
+        "tribal_weakness": 2,
+        "initial_willpower": 2,
+        "beginning_gifts": ["cooking", "resist_toxin", "tagalong"]
+    },
+    "children_of_gaia": {
+        "background_restrictions":[],
+        "tribal_weakness": 3,
+        "initial_willpower": 4,
+        "beginning_gifts": ["mercy", "mothers_touch", "resist_pain"]
+    },
+    "fianna": {
+        "background_restrictions":[],
+        "tribal_weakness": 4,
+        "initial_willpower": 3,
+        "beginning_gifts": ["faerie_light", "persuasion", "resist_toxin"]
+    },
+    "get_of_fenris": {
+        "background_restrictions":["contacts"],
+        "tribal_weakness": 5,
+        "initial_willpower": 3,
+        "beginning_gifts": ["razor_claws", "resist_pain", "visage_of_fenris"]
+    },
+    "glass_walkers": {
+        "background_restrictions":["ancestors", "pure_breed"],
+        "tribal_weakness": 6,
+        "initial_willpower": 3,
+        "beginning_gifts": ["control_simple_machine", "diagnostics", "trick_shot"]
+    },
+    "red_talons": {
+        "background_restrictions":["allies", "contacts", "resources"],
+        "tribal_weakness": 7,
+        "initial_willpower": 4,
+        "beginning_gifts": []
+    },
+    "shadow_lords": {
+        "background_restrictions":["allies", "mentor"],
+        "tribal_weakness": 8,
+        "initial_willpower": 3,
+        "beginning_gifts": ["aura_of_confidence", "fatal_flaw", "seizing_the_edge"]
+    },
+    "silent_striders": {
+        "background_restrictions":["ancestors", "resources"],
+        "tribal_weakness": 9,
+        "initial_willpower": 3,
+        "beginning_gifts": ["faerie_light", "persuasion", "resist_toxin"]
+    },
+    "silver_fangs": {
+        "background_restrictions":[],
+        "background_requisite":[{
+            "name": "ancestors",
+            "min_value": 3
+        }],
+        "tribal_weakness": 10,
+        "initial_willpower": 3,
+        "beginning_gifts": ["falcons_grasp", "lambent_flame", "sense_wyrm"]
+    },
+    "stargazers": {
+        "background_restrictions":["fetish", "resouces"],
+        "tribal_weakness": 11,
+        "initial_willpower": 3,
+        "beginning_gifts": []
+    },
+    "uktena": {
+        "background_restrictions":[],
+        "tribal_weakness": 12,
+        "initial_willpower": 3,
+        "beginning_gifts": ["sense_magic", "shroud", "spirit_speech"]
+    },
+    "wendigo": {
+        "background_restrictions":["contacts", "resouces"],
+        "tribal_weakness": 13,
+        "initial_willpower": 4,
+        "beginning_gifts": ["call_the_breeze", "camouflage", "resist_pain"]
+    }
+}

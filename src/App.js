@@ -5,6 +5,10 @@ import Test from "./components/test/Test";
 import Sheet from "./contexts/Sheet.json";
 import SheetContext from "./contexts/SheetContext";
 
+import auspices from './assets/tables/auspices.json';
+import breeds from './assets/tables/breeds.json';
+import tribes from './assets/tables/tribes.json';
+
 class App extends React.Component {
   state = {
     sheet: Sheet,
@@ -18,11 +22,86 @@ class App extends React.Component {
     getPriority: this.getPriority,
     chageValueNormalMode: this.chageValueNormalMode,
     loadBackgrounds: this.loadBackgrounds,
-    changeBackgroundValue: this.changeBackgroundValue
+    changeBackgroundValue: this.changeBackgroundValue,
+    loadGifts: this.loadGifts,
+    changeFillMode: this.changeFillMode,
+    addGift: this.addGift,
+    chooseTribe: this.chooseTribe,
+    chooseAuspice: this.chooseAuspice,
+    chooseBreed: this.chooseBreed
   };
+
+  chooseTribe(tribe) {
+    const c_tribe = tribes[tribe];
+    console.log(c_tribe);
+  }
+
+  chooseAuspice(auspice) {
+
+  }
+
+  chooseBreed(breed) {
+
+  }
+
+  addGift(gift) {
+    const sheet = this.sheet;
+
+    const gifts = sheet.advantages.gifts.itens.filter(f => f.name === gift.name);
+
+    if(gifts.length > 0) {
+      return;
+    }
+
+    if(this.mode === "normal" &&
+       sheet.advantages.gifts.control.total[1] >= 3) {
+        return;
+    }
+
+    sheet.advantages.gifts.itens.push(gift);
+    sheet.advantages.gifts.control.total[gift.level] += 1;
+
+    this.updateState(this);
+    console.log(sheet.advantages.gifts);
+  }
 
   changeFillMode(fillMode) {
     const v = this;
+    const sheet = v.sheet;
+
+    if (v.mode === "normal") {
+      let total = 0;
+      for (const prop in sheet.attributes) {
+        total += sheet.attributes[prop].control.total;
+      }
+      if(total < 24) {
+        console.log('Preencha attributos');
+        return;
+      }
+
+      total = 0;
+
+      for(const prop in sheet.abilities){
+        total += sheet.abilities[prop].control.total;
+      }
+
+      if(total < 27) {
+        console.log('Preencha habilidades');
+        return;
+      }
+
+      if(sheet.advantages.backgrounds.control.total < 5) {
+        console.log('Preencha antecedentes');
+        return;
+      }
+
+      if(sheet.advantages.gifts.control.total[1] < 3) {
+        console.log('Preencha dons');
+        return;
+      }
+    }
+
+    console.log('yes');
     v.mode = fillMode;
     this.updateState(v);
   }
@@ -55,6 +134,20 @@ class App extends React.Component {
       if (i < section.initialValue || i < value) section.fill[i] = true;
       else section.fill[i] = false;
     }
+  }
+
+  loadGifts() {
+    const v = this;
+    let sheetGifts = v.sheet.advantages.gifts.itens;
+    let gifts = [];
+
+    sheetGifts.forEach(gift => {
+      gift["sectionName"] = "gifts";
+      gift["control"] = v.sheet.advantages.gifts.control;
+      gifts.push(gift);
+    });
+
+    return gifts;
   }
 
   loadBackgrounds() {
