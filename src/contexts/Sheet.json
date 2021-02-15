@@ -363,8 +363,60 @@
     }
   },
   "advantages": {
-    "backgrounds": [],
-    "gifts": []
+    "backgrounds": {
+      "itens":[
+        {
+          "name":"b1",
+          "value": 0,
+          "maxValue": 5,
+          "fill":[],
+          "bonus":[],
+          "xp":[]
+        },
+        {
+          "name":"b2",
+          "value": 0,
+          "maxValue": 5,
+          "fill":[],
+          "bonus":[],
+          "xp":[]
+        },
+        {
+          "name":"b3",
+          "value": 0,
+          "maxValue": 5,
+          "fill":[],
+          "bonus":[],
+          "xp":[]
+        },
+        {
+          "name":"b4",
+          "value": 0,
+          "maxValue": 5,
+          "fill":[],
+          "bonus":[],
+          "xp":[]
+        },
+        {
+          "name":"b5",
+          "value": 0,
+          "maxValue": 5,
+          "fill":[],
+          "bonus":[],
+          "xp":[]
+        }
+      ],
+      "control": {
+        "total": 0
+      }
+    },
+    "gifts": [{
+      "name":"Falling touch",
+      "level": 1,
+      "fill": true,
+      "xp": 0,
+      "bonus": 0
+    }]
   },
   "renown": {
     "glory": {

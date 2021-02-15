@@ -16,7 +16,9 @@ class App extends React.Component {
     fillArray: this.fillArray,
     changeValue: this.changeValue,
     getPriority: this.getPriority,
-    chageValueNormalMode: this.chageValueNormalMode
+    chageValueNormalMode: this.chageValueNormalMode,
+    loadBackgrounds: this.loadBackgrounds,
+    changeBackgroundValue: this.changeBackgroundValue
   };
 
   changeFillMode(fillMode) {
@@ -55,6 +57,29 @@ class App extends React.Component {
     }
   }
 
+  loadBackgrounds() {
+    const v = this;
+
+    let sheetBackgrounds = v.sheet.advantages.backgrounds.itens;
+    let backgrounds = [];
+
+    sheetBackgrounds.forEach(bg => {
+      this.fillArray(bg, bg.value);
+      bg["sectionName"] = "backgrounds";
+      bg["control"] = v.sheet.advantages.backgrounds.control;
+      backgrounds.push(bg);
+    });
+
+    let total = 0;
+    backgrounds.forEach(bg => {
+      total += bg.value;
+    });
+    v.sheet.advantages.backgrounds.control.total = total;
+
+    this.updateState(v);
+    return backgrounds;
+  }
+
   loadSection(sectionName, sectionType, sectionAttributeName) {
     const v = this;
 
@@ -70,9 +95,42 @@ class App extends React.Component {
     return section;
   }
 
+  changeBackgroundValue(section, selectedValue) {
+    const currentValue = section.value;
+    let currentTotal = section.control.total;
+
+    if (currentValue === selectedValue) return;
+
+    if (selectedValue < currentValue) {
+      const diff = currentValue - selectedValue;
+      currentTotal -= diff;
+
+      section.value = selectedValue;
+      section.control.total = currentTotal;
+
+      return;
+    }
+
+    const diff = selectedValue - section.value;
+    currentTotal += diff;
+
+    if(currentTotal > 5 && this.mode === "normal") return;
+
+    section.value = selectedValue;
+    section.control.total = currentTotal;
+
+  }
+
   chageValueNormalMode(section, selectedValue) {
-    selectedValue =
-      selectedValue >= section.startValue ? selectedValue : section.startValue;
+    const startValue = section.startValue ? section.startValue : 0;
+    selectedValue = selectedValue >= startValue ? 
+                    selectedValue : 
+                    startValue;
+    
+    if(section.sectionName === 'backgrounds'){
+      this.changeBackgroundValue(section, selectedValue);
+      return;
+    }
 
     const currentValue = section.value;
     let currentTotal = section.type.control.total;

@@ -8,7 +8,7 @@ class Fill extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        this.section = this.context.loadSection(props.sectionName, props.sectionType, props.sectionAttributeName);
+        this.section = props.section;
 
         this.left = props.left;
         this.top = props.top;
