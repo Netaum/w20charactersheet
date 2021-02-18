@@ -1,7 +1,8 @@
 import React from 'react';
 import SheetContext from '../../contexts/SheetContext';
 import Fill from '../fill/Fill';
-import Select from 'react-select';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 class Test extends React.Component {
     static contextType = SheetContext;
@@ -47,25 +48,29 @@ class Test extends React.Component {
         this.kno.push(context.loadSection('abilities','knowledges','law'));
         this.kno.push(context.loadSection('abilities','knowledges','medicine'));
 
-        this.gifts = context.loadGifts();
         this.giftName = "Falling touch";
 
         this.options = [
-            { value: 'Blue', label:'Blue' },
-            { value: 'Red', label:'Red' },
-            { value: 'Black', label:'Black' },
+            { value: 'Blue', label:'Blue', style: { color: 'red'} },
+            { value: 'Red', label:'Red', style: { color: 'blue'} },
+            { value: 'Black', label:'Black', style: { color: 'yellow'} },
         ]
     }
 
     handleHeader = (headerName, value) => {
-        this.context.changeHeader(headerName, value);
+
+    }
+
+    removeGift = (event) => {
+        console.log(event.target.id);
     }
 
     loadGifts() {
+        let gifts = this.context.loadGifts();
         var lineGifts = [];
         let i = 0;
-        this.gifts.forEach(g => {
-            lineGifts.push(<span key={i++}>{i} {g.name} (level {g.level})</span>);
+        gifts.forEach(g => {
+            lineGifts.push(<div key={i++}><span id={g.name} onClick={(e) => this.removeGift(e)}>{i} {g.name} (level {g.level})</span></div>);
         });
         return (
             <div>
@@ -75,7 +80,6 @@ class Test extends React.Component {
     }
 
     handleGift = (name) => {
-        console.log(name);
         this.giftName = name;
     }
 
@@ -93,7 +97,18 @@ class Test extends React.Component {
         this.context.chooseTribe('black_furies');
     }
 
+    onSelect = (event) => {
+
+    }
+
     render () {
+        const test_style = {
+            position: 'absolute',
+            left: '150px',
+            top: '250px',
+            width: '200px'
+
+        };
         return (
             <div>
                 <span>Name:</span>
@@ -165,7 +180,9 @@ class Test extends React.Component {
                 <button onClick={() => this.addGift(this.giftName)} >Add Gift</button>
                 <button onClick={() => this.addTribe()}>Tribe</button>
                 <br/>
-                <Select options={this.options} />
+                <div style={test_style}>
+                    <Dropdown options={this.options} onChange={ e => this.onSelect(e)} placeholder='Select a color' />
+                </div>
             </div>
         )
     }

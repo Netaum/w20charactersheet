@@ -8,6 +8,7 @@ import SheetContext from "./contexts/SheetContext";
 import auspices from './assets/tables/auspices.json';
 import breeds from './assets/tables/breeds.json';
 import tribes from './assets/tables/tribes.json';
+import logo from './assets/images/wwlogo.svg';
 
 class App extends React.Component {
   state = {
@@ -307,9 +308,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <div className="page_size_complete page_shadow page_transp ">
+          <div className="ww-logo">
+            <img src={logo} alt='Logo' />
+          </div>
           <SheetContext.Provider value={this.state}>
-            <Test />
+            {//<Test /> 
+            }
           </SheetContext.Provider>
         </div>
       </div>

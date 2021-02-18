@@ -2,6 +2,45 @@
   text-align: center;
 }
 
+.Border {
+  background: url('./assets/images/wwborder.svg');
+}
+
+.page_size_complete{
+  width: 794px;
+  height: 1123px;
+  display: block;
+}
+
+.ww-logo {
+  position: absolute;
+  left: 50%;
+  top:10px;
+  z-index: 10;
+  background: url('./assets/images/wwlogo.svg') no-repeat;
+}
+
+.page_transp {
+  background: url('./assets/images/W20_2_Page_Character_Sheet-1.jpg') no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+.page_shadow {
+  margin: 13px auto;
+  box-shadow: 1px 1px 3px 1px #333;
+  border-collapse: separate;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  border: 0;
+}
+
+.background_image {
+  background-size: contain;
+  background: url('./assets/images/wwborder.svg');
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
