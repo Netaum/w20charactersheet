@@ -9,6 +9,10 @@ import auspices from './assets/tables/auspices.json';
 import breeds from './assets/tables/breeds.json';
 import tribes from './assets/tables/tribes.json';
 import logo from './assets/images/wwlogo.svg';
+import border from './assets/images/wwborder.svg';
+import line from './assets/images/wwline.svg';
+import line_small from './assets/images/wwline-small.svg';
+import Select from 'react-select';
 
 class App extends React.Component {
   state = {
@@ -306,11 +310,41 @@ class App extends React.Component {
   }
 
   render() {
+    const pr = [
+      { value : '1', label : 'Resources' },
+      { value : '2', label : 'Allies' },
+      { value : '3', label : 'Rites' },
+      { value : '4', label : 'Contacts' },
+
+    ];
     return (
       <div className="App">
-        <div className="page_size_complete page_shadow page_transp ">
+        <select >
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        <div className="page_size_complete page_shadow  ">
+        <div className='ww-border' >
+        <img src={border} alt='border' />
+
+        </div>
+       
+
+          <img src={logo} alt='Logo' />
+          <img src={line} alt='Line1' className='ww-line1' />
+          <img src={line} alt='Line2' className='ww-line2' />
+          <img src={line} alt='Line3' className='ww-line3' />
+          <img src={line_small} alt='sline' className='ww-sline1' />
+          <img src={line_small} alt='sline' className='ww-sline2' />
+          <img src={line_small} alt='sline' className='ww-sline3' />
+          <img src={line_small} alt='sline' className='ww-sline4' />
+          <img src={line_small} alt='sline' className='ww-sline5' />
+          <img src={line_small} alt='sline' className='ww-sline6' />
+          <img src={line_small} alt='sline' className='ww-sline7' />
           <div className="ww-logo">
-            <img src={logo} alt='Logo' />
+           
           </div>
           <SheetContext.Provider value={this.state}>
             {//<Test /> 
