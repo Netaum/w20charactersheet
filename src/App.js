@@ -1,5 +1,5 @@
 import React from "react";
-
+import Header from './components/header/Header';
 import "./App.css";
 import Test from "./components/test/Test";
 import Sheet from "./contexts/Sheet.json";
@@ -319,13 +319,14 @@ class App extends React.Component {
     ];
     return (
       <div className="App">
+        <Header />
         <select >
-            <option value="grapefruit">Grapefruit</option>
+            <option value="grapefruit">Grape</option>
             <option value="lime">Lime</option>
             <option value="coconut">Coconut</option>
             <option value="mango">Mango</option>
           </select>
-        <div className="page_size_complete page_shadow  ">
+        <div className="page_size_complete page_shadow  page_transp">
         <div className='ww-border' >
         <img src={border} alt='border' />
 

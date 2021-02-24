@@ -1,5 +1,5 @@
 import i18n from "i18next";
-import { reactI18nextModule } from "react-i18next";
+import { initReactI18next } from "react-i18next";
 import headerEn from "./assets/translations/en/header.json";
 
 const resources = {
@@ -8,7 +8,7 @@ const resources = {
   },
 };
 
-i18n.use(reactI18nextModule).init({
+i18n.use(initReactI18next).init({
   resources,
   lng: "en",
   fallbackLng: "en",

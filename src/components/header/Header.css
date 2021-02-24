@@ -1,0 +1,34 @@
+@font-face {
+    font-family: caflisch;
+    src:url(../../assets/fonts/Caflisch\ Script\ Pro\ Regular.woff)format('woff');
+}
+.header {
+    position: absolute;
+    z-index: 90;
+    font-family: caflisch;
+    font-size: 22px;
+}
+
+.column1 {
+    left: 54px;
+}
+
+.column2 {
+    left: 289px;
+}
+
+.column3 {
+    left: 530px;
+}
+
+.line1 {
+    top: 165px;
+}
+
+.line2 {
+    top: 190px;
+}
+
+.line3 {
+    top: 215px;
+}
