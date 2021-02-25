@@ -1,7 +1,6 @@
 import React from "react";
 import Header from './components/header/Header';
 import "./App.css";
-import Test from "./components/test/Test";
 import Sheet from "./contexts/Sheet.json";
 import SheetContext from "./contexts/SheetContext";
 
@@ -12,7 +11,6 @@ import logo from './assets/images/wwlogo.svg';
 import border from './assets/images/wwborder.svg';
 import line from './assets/images/wwline.svg';
 import line_small from './assets/images/wwline-small.svg';
-import Select from 'react-select';
 
 class App extends React.Component {
   state = {
@@ -33,12 +31,60 @@ class App extends React.Component {
     addGift: this.addGift,
     chooseTribe: this.chooseTribe,
     chooseAuspice: this.chooseAuspice,
-    chooseBreed: this.chooseBreed
+    chooseBreed: this.chooseBreed,
+    addBackground: this.addBackground
   };
 
   chooseTribe(tribe) {
-    const c_tribe = tribes[tribe];
-    console.log(c_tribe);
+    const sheet = this.sheet;
+    const s_tribe = tribes[tribe];
+    sheet['beginning_gifts'] = {};
+    sheet['beginning_gifts']['tribe'] = s_tribe.beginning_gifts;
+    sheet['background_restrictions'] = s_tribe.background_restrictions;
+
+    sheet.advantages.backgrounds.itens = [];
+    sheet.advantages.backgrounds.control.total = 0;
+
+    if('background_requisites' in s_tribe) {
+      s_tribe.background_requisites.forEach(b => {
+        const new_back = {
+          name: b.name,
+          value: b.min_value,
+          maxValue: 5,
+          fill:[],
+          bonus:[],
+          xp:[]
+        };
+        this.fillArray(new_back, b.min_value);
+        this.addBackground(new_back);
+      });
+    }
+
+    sheet.willpower = s_tribe.initial_willpower;
+
+    console.log(sheet);
+  }
+
+  addBackground(background) {
+    const sheet = this.sheet;
+
+    const backgrounds = sheet.advantages.backgrounds.itens.filter(f => f.name === background.name);
+
+    if(backgrounds.length > 0) {
+      return;
+    }
+
+    const total = sheet.advantages.backgrounds.control.total + background.value;
+
+    if(this.mode === "normal" && 
+       total >= 5) {
+        return;
+    }
+
+    sheet.advantages.backgrounds.itens.push(background);
+    sheet.advantages.backgrounds.control.total = total;
+
+    this.updateState(this);
   }
 
   chooseAuspice(auspice) {
@@ -127,9 +173,11 @@ class App extends React.Component {
     }
   }
 
-  changeHeader(headerName, value) {
+  changeHeader(headerName, value, key) {
     const v = this;
     v.sheet.header[headerName] = value;
+    if(this.mode === "normal" && headerName === 'tribe')
+      this.chooseTribe(key);
     this.updateState(v);
   }
 
@@ -318,41 +366,42 @@ class App extends React.Component {
 
     ];
     return (
-      <div className="App">
-        <Header />
-        <select >
-            <option value="grapefruit">Grape</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-        <div className="page_size_complete page_shadow  page_transp">
-        <div className='ww-border' >
-        <img src={border} alt='border' />
+      <SheetContext.Provider value={this.state}>
+        <div className="App">
+          <select >
+              <option value="grapefruit">Grape</option>
+              <option value="lime">Lime</option>
+              <option value="coconut">Coconut</option>
+              <option value="mango">Mango</option>
+            </select>
+          <div className="page_size_complete page_shadow  page_transp">
+          <div className='ww-border' >
+          <img src={border} alt='border' />
 
-        </div>
-       
-
-          <img src={logo} alt='Logo' />
-          <img src={line} alt='Line1' className='ww-line1' />
-          <img src={line} alt='Line2' className='ww-line2' />
-          <img src={line} alt='Line3' className='ww-line3' />
-          <img src={line_small} alt='sline' className='ww-sline1' />
-          <img src={line_small} alt='sline' className='ww-sline2' />
-          <img src={line_small} alt='sline' className='ww-sline3' />
-          <img src={line_small} alt='sline' className='ww-sline4' />
-          <img src={line_small} alt='sline' className='ww-sline5' />
-          <img src={line_small} alt='sline' className='ww-sline6' />
-          <img src={line_small} alt='sline' className='ww-sline7' />
-          <div className="ww-logo">
-           
           </div>
-          <SheetContext.Provider value={this.state}>
-            {//<Test /> 
-            }
-          </SheetContext.Provider>
+        
+          <Header />
+
+            <img src={logo} alt='Logo' />
+            <img src={line} alt='Line1' className='ww-line1' />
+            <img src={line} alt='Line2' className='ww-line2' />
+            <img src={line} alt='Line3' className='ww-line3' />
+            <img src={line_small} alt='sline' className='ww-sline1' />
+            <img src={line_small} alt='sline' className='ww-sline2' />
+            <img src={line_small} alt='sline' className='ww-sline3' />
+            <img src={line_small} alt='sline' className='ww-sline4' />
+            <img src={line_small} alt='sline' className='ww-sline5' />
+            <img src={line_small} alt='sline' className='ww-sline6' />
+            <img src={line_small} alt='sline' className='ww-sline7' />
+            <div className="ww-logo">
+            
+            </div>
+            
+              {//<Test /> 
+              }
+          </div>
         </div>
-      </div>
+      </SheetContext.Provider>
     );
   }
 }

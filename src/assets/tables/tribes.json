@@ -55,8 +55,8 @@
     },
     "silver_fangs": {
         "background_restrictions":[],
-        "background_requisite":[{
-            "name": "ancestors",
+        "background_requisites":[{
+            "name": "pure_breed",
             "min_value": 3
         }],
         "tribal_weakness": 10,
