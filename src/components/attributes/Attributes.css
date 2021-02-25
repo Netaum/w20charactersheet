@@ -1,0 +1,29 @@
+.attribute_line1 {
+    top: 274px;
+}
+
+.attribute_line2 {
+    top: 292px;
+}
+
+.attribute_line3 {
+    top: 310px;
+}
+
+.attribute_column1 {
+    left: 50px;
+}
+
+.attribute_column2 {
+    left: 292px;
+}
+
+.attribute_column3 {
+    left: 534px;
+}
+
+.attribute {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    position: absolute;
+}

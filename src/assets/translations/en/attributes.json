@@ -1,0 +1,11 @@
+{
+    "strength": "Strength",
+    "dexterity": "Dexterity",
+    "stamina": "Stamina",
+    "charisma": "Charisma",
+    "manipulation": "Manipulation",
+    "appearance": "Appearance",
+    "perception": "Perception",
+    "intelligence": "Intelligence",
+    "wits": "Wits"
+}

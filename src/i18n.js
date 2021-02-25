@@ -5,6 +5,7 @@ import tribesEn from "./assets/translations/en/tribes.json";
 import auspicesEn from "./assets/translations/en/auspices.json";
 import breedsEn from "./assets/translations/en/breeds.json";
 import labelsEn from './assets/translations/en/labels.json';
+import attributesEn from './assets/translations/en/attributes.json';
 
 const resources = {
   en: {
@@ -12,7 +13,8 @@ const resources = {
     tribes: tribesEn,
     auspices: auspicesEn,
     breeds: breedsEn,
-    labels: labelsEn
+    labels: labelsEn,
+    attributes: attributesEn
   },
 };
 

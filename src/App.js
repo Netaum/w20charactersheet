@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/header/Header";
 import Labels from "./components/labels/Labels";
+import Attributes from './components/attributes/Attributes';
 import "./App.css";
 import Sheet from "./contexts/Sheet.json";
 import SheetContext from "./contexts/SheetContext";
@@ -383,6 +384,7 @@ class App extends React.Component {
           <div className="page_size_complete page_shadow page_transp">
             <Header />
             <Labels />
+            <Attributes />
           </div>
         </div>
       </SheetContext.Provider>

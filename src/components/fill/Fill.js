@@ -12,6 +12,7 @@ class Fill extends React.Component {
 
         this.left = props.left;
         this.top = props.top;
+        this.size = props.size ?? "12px";
 
         this.fillChar = "e";
         this.emptyChar = "d";
@@ -34,7 +35,8 @@ class Fill extends React.Component {
         const values = this.section.fill;
         const spanStyle = {
             left: this.left,
-            top: this.top
+            top: this.top,
+            fontSize: this.size
         };
 
         return (
