@@ -1,0 +1,191 @@
+@font-face {
+  font-family: caflisch;
+  src: url(../../assets/fonts/Caflisch\ Script\ Pro\ Regular.woff)
+    format("woff");
+}
+
+.ww-logo {
+  position: absolute;
+  left: 27%;
+  top: 0px;
+  z-index: 10;
+}
+
+.ww-line1 {
+  position: absolute;
+  left: 55px;
+  top: 201px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-line2 {
+  position: absolute;
+  left: 55px;
+  top: 325px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-line3 {
+  position: absolute;
+  left: 55px;
+  top: 588px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-sline1 {
+  position: absolute;
+  left: 52px;
+  top: 754px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-sline2 {
+  position: absolute;
+  left: 52px;
+  top: 962px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-sline3 {
+  position: absolute;
+  left: 295px;
+  top: 754px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-sline4 {
+  position: absolute;
+  left: 295px;
+  top: 856px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-sline5 {
+  position: absolute;
+  left: 295px;
+  top: 962px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-sline6 {
+  position: absolute;
+  left: 533px;
+  top: 754px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww-sline7 {
+  position: absolute;
+  left: 533px;
+  top: 962px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.ww_base {
+  position: absolute;
+  opacity: 0.3;
+  z-index: 10;
+}
+
+.ww_border {
+  width: 794px;
+  height: 1123px;
+  display: block;
+  left: 0px;
+  top: 0px;
+}
+
+.label {
+  position: absolute;
+}
+
+.label_column1 {
+  left: 87px;
+}
+
+.label_column2 {
+  left: 325px;
+}
+
+.label_column3 {
+  left: 566px;
+}
+
+.label_line1 {
+  top: 247px;
+}
+
+.label_line2 {
+  top: 370px;
+}
+
+.label_line3 {
+  top: 634px;
+}
+
+.label_line4 {
+  top: 754px;
+}
+
+.label_line5 {
+  top: 856px;
+}
+
+.label_line6 {
+  top: 961px;
+}
+
+.label_background {
+  background-color: white;
+}
+
+.label_title {
+  font-family: caflisch;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+  width: 250px;
+  z-index: 50;
+}
+
+.label_nobackground {
+  background-color: none;
+}
+
+.title_column1 {
+  left: 276px;
+}
+
+.title_line1 {
+  top: 210px;
+}
+
+.title_line2 {
+  top: 333px;
+}
+
+.title_line3 {
+  top: 595px;
+}
+
+.label_subtitle {
+  font-family: caflisch;
+  font-size: 29px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  z-index: 51;
+}

@@ -1,0 +1,23 @@
+{
+    "attributes":"Attributes",
+    "physical": "Physical",
+    "social": "Social",
+    "mental": "Mental",
+    "abilities": "Abilities",
+    "talents": "Talents",
+    "skills": "Skills",
+    "knowledges": "Knowledges",
+    "advantages": "Advantages",
+    "backgrounds": "Backgrounds",
+    "gifts": "Gifts",
+    "renown": "Renown",
+    "glory": "Glory",
+    "honor": "Honor",
+    "wisdom": "Wisdom",
+    "rank": "Rank",
+    "rage": "Rage",
+    "gnosis": "Gnosis",
+    "willpower": "Willpower",
+    "health": "Health",
+    "experience": "Experience"
+}

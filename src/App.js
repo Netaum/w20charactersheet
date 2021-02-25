@@ -1,16 +1,13 @@
 import React from "react";
-import Header from './components/header/Header';
+import Header from "./components/header/Header";
+import Labels from "./components/labels/Labels";
 import "./App.css";
 import Sheet from "./contexts/Sheet.json";
 import SheetContext from "./contexts/SheetContext";
 
-import auspices from './assets/tables/auspices.json';
-import breeds from './assets/tables/breeds.json';
-import tribes from './assets/tables/tribes.json';
-import logo from './assets/images/wwlogo.svg';
-import border from './assets/images/wwborder.svg';
-import line from './assets/images/wwline.svg';
-import line_small from './assets/images/wwline-small.svg';
+import auspices from "./assets/tables/auspices.json";
+import breeds from "./assets/tables/breeds.json";
+import tribes from "./assets/tables/tribes.json";
 
 class App extends React.Component {
   state = {
@@ -32,29 +29,28 @@ class App extends React.Component {
     chooseTribe: this.chooseTribe,
     chooseAuspice: this.chooseAuspice,
     chooseBreed: this.chooseBreed,
-    addBackground: this.addBackground
+    addBackground: this.addBackground,
   };
 
   chooseTribe(tribe) {
     const sheet = this.sheet;
     const s_tribe = tribes[tribe];
-    if(!('beginning_gifts' in sheet))
-      sheet['beginning_gifts'] = {};
-    sheet['beginning_gifts']['tribe'] = s_tribe.beginning_gifts;
-    sheet['background_restrictions'] = s_tribe.background_restrictions;
+    if (!("beginning_gifts" in sheet)) sheet["beginning_gifts"] = {};
+    sheet["beginning_gifts"]["tribe"] = s_tribe.beginning_gifts;
+    sheet["background_restrictions"] = s_tribe.background_restrictions;
 
     sheet.advantages.backgrounds.itens = [];
     sheet.advantages.backgrounds.control.total = 0;
 
-    if('background_requisites' in s_tribe) {
-      s_tribe.background_requisites.forEach(b => {
+    if ("background_requisites" in s_tribe) {
+      s_tribe.background_requisites.forEach((b) => {
         const new_back = {
           name: b.name,
           value: b.min_value,
           maxValue: 5,
-          fill:[],
-          bonus:[],
-          xp:[]
+          fill: [],
+          bonus: [],
+          xp: [],
         };
         this.fillArray(new_back, b.min_value);
         this.addBackground(new_back);
@@ -67,17 +63,18 @@ class App extends React.Component {
   addBackground(background) {
     const sheet = this.sheet;
 
-    const backgrounds = sheet.advantages.backgrounds.itens.filter(f => f.name === background.name);
+    const backgrounds = sheet.advantages.backgrounds.itens.filter(
+      (f) => f.name === background.name
+    );
 
-    if(backgrounds.length > 0) {
+    if (backgrounds.length > 0) {
       return;
     }
 
     const total = sheet.advantages.backgrounds.control.total + background.value;
 
-    if(this.mode === "normal" && 
-       total >= 5) {
-        return;
+    if (this.mode === "normal" && total >= 5) {
+      return;
     }
 
     sheet.advantages.backgrounds.itens.push(background);
@@ -89,15 +86,13 @@ class App extends React.Component {
   chooseAuspice(auspice) {
     const sheet = this.sheet;
     const s_auspice = auspices[auspice];
-    if(!('beginning_gifts' in sheet))
-      sheet['beginning_gifts'] = {};
-    sheet['beginning_gifts']['auspice'] = s_auspice.beginning_gifts;
+    if (!("beginning_gifts" in sheet)) sheet["beginning_gifts"] = {};
+    sheet["beginning_gifts"]["auspice"] = s_auspice.beginning_gifts;
 
     this.fillArray(sheet.rage, s_auspice.initial_rage);
     sheet.rage.value = s_auspice.initial_rage;
 
-
-    s_auspice.initial_renown.forEach(r => {
+    s_auspice.initial_renown.forEach((r) => {
       sheet.renown[r.name].permanent.value = r.value;
       this.fillArray(sheet.renown[r.name].permanent, r.value);
       this.fillArray(sheet.renown[r.name].temporary, 0);
@@ -107,29 +102,31 @@ class App extends React.Component {
   chooseBreed(breed) {
     const sheet = this.sheet;
     const s_breed = breeds[breed];
-    if(!('beginning_gifts' in sheet))
-      sheet['beginning_gifts'] = {};
-    sheet['beginning_gifts']['breed'] = s_breed.beginning_gifts;
+    if (!("beginning_gifts" in sheet)) sheet["beginning_gifts"] = {};
+    sheet["beginning_gifts"]["breed"] = s_breed.beginning_gifts;
 
     this.fillArray(sheet.gnosis, s_breed.initial_gnosis);
     sheet.gnosis.value = s_breed.initial_gnosis;
 
     console.log(sheet);
-
   }
 
   addGift(gift) {
     const sheet = this.sheet;
 
-    const gifts = sheet.advantages.gifts.itens.filter(f => f.name === gift.name);
+    const gifts = sheet.advantages.gifts.itens.filter(
+      (f) => f.name === gift.name
+    );
 
-    if(gifts.length > 0) {
+    if (gifts.length > 0) {
       return;
     }
 
-    if(this.mode === "normal" &&
-       sheet.advantages.gifts.control.total[1] >= 3) {
-        return;
+    if (
+      this.mode === "normal" &&
+      sheet.advantages.gifts.control.total[1] >= 3
+    ) {
+      return;
     }
 
     sheet.advantages.gifts.itens.push(gift);
@@ -148,34 +145,34 @@ class App extends React.Component {
       for (const prop in sheet.attributes) {
         total += sheet.attributes[prop].control.total;
       }
-      if(total < 24) {
-        console.log('Preencha attributos');
+      if (total < 24) {
+        console.log("Preencha attributos");
         return;
       }
 
       total = 0;
 
-      for(const prop in sheet.abilities){
+      for (const prop in sheet.abilities) {
         total += sheet.abilities[prop].control.total;
       }
 
-      if(total < 27) {
-        console.log('Preencha habilidades');
+      if (total < 27) {
+        console.log("Preencha habilidades");
         return;
       }
 
-      if(sheet.advantages.backgrounds.control.total < 5) {
-        console.log('Preencha antecedentes');
+      if (sheet.advantages.backgrounds.control.total < 5) {
+        console.log("Preencha antecedentes");
         return;
       }
 
-      if(sheet.advantages.gifts.control.total[1] < 3) {
-        console.log('Preencha dons');
+      if (sheet.advantages.gifts.control.total[1] < 3) {
+        console.log("Preencha dons");
         return;
       }
     }
 
-    console.log('yes');
+    console.log("yes");
     v.mode = fillMode;
     this.updateState(v);
   }
@@ -199,12 +196,10 @@ class App extends React.Component {
   changeHeader(headerName, value, key) {
     const v = this;
     v.sheet.header[headerName] = value;
-    if(this.mode === "normal" && headerName === 'tribe')
-      this.chooseTribe(key);
-    if(this.mode === "normal" && headerName === 'auspice')
+    if (this.mode === "normal" && headerName === "tribe") this.chooseTribe(key);
+    if (this.mode === "normal" && headerName === "auspice")
       this.chooseAuspice(key);
-    if(this.mode === "normal" && headerName === 'breed')
-      this.chooseBreed(key);
+    if (this.mode === "normal" && headerName === "breed") this.chooseBreed(key);
     this.updateState(v);
   }
 
@@ -221,7 +216,7 @@ class App extends React.Component {
     let sheetGifts = v.sheet.advantages.gifts.itens;
     let gifts = [];
 
-    sheetGifts.forEach(gift => {
+    sheetGifts.forEach((gift) => {
       gift["sectionName"] = "gifts";
       gift["control"] = v.sheet.advantages.gifts.control;
       gifts.push(gift);
@@ -236,7 +231,7 @@ class App extends React.Component {
     let sheetBackgrounds = v.sheet.advantages.backgrounds.itens;
     let backgrounds = [];
 
-    sheetBackgrounds.forEach(bg => {
+    sheetBackgrounds.forEach((bg) => {
       this.fillArray(bg, bg.value);
       bg["sectionName"] = "backgrounds";
       bg["control"] = v.sheet.advantages.backgrounds.control;
@@ -244,7 +239,7 @@ class App extends React.Component {
     });
 
     let total = 0;
-    backgrounds.forEach(bg => {
+    backgrounds.forEach((bg) => {
       total += bg.value;
     });
     v.sheet.advantages.backgrounds.control.total = total;
@@ -287,20 +282,17 @@ class App extends React.Component {
     const diff = selectedValue - section.value;
     currentTotal += diff;
 
-    if(currentTotal > 5 && this.mode === "normal") return;
+    if (currentTotal > 5 && this.mode === "normal") return;
 
     section.value = selectedValue;
     section.control.total = currentTotal;
-
   }
 
   chageValueNormalMode(section, selectedValue) {
     const startValue = section.startValue ? section.startValue : 0;
-    selectedValue = selectedValue >= startValue ? 
-                    selectedValue : 
-                    startValue;
-    
-    if(section.sectionName === 'backgrounds'){
+    selectedValue = selectedValue >= startValue ? selectedValue : startValue;
+
+    if (section.sectionName === "backgrounds") {
       this.changeBackgroundValue(section, selectedValue);
       return;
     }
@@ -370,7 +362,7 @@ class App extends React.Component {
 
     if (selectedValue === section.value) selectedValue--;
 
-    if(this.mode === 'normal') {
+    if (this.mode === "normal") {
       this.chageValueNormalMode(section, selectedValue);
     }
   }
@@ -385,47 +377,12 @@ class App extends React.Component {
   }
 
   render() {
-    const pr = [
-      { value : '1', label : 'Resources' },
-      { value : '2', label : 'Allies' },
-      { value : '3', label : 'Rites' },
-      { value : '4', label : 'Contacts' },
-
-    ];
     return (
       <SheetContext.Provider value={this.state}>
         <div className="App">
-          <select >
-              <option value="grapefruit">Grape</option>
-              <option value="lime">Lime</option>
-              <option value="coconut">Coconut</option>
-              <option value="mango">Mango</option>
-            </select>
-          <div className="page_size_complete page_shadow  page_transp">
-          <div className='ww-border' >
-          <img src={border} alt='border' />
-
-          </div>
-        
-          <Header />
-
-            <img src={logo} alt='Logo' />
-            <img src={line} alt='Line1' className='ww-line1' />
-            <img src={line} alt='Line2' className='ww-line2' />
-            <img src={line} alt='Line3' className='ww-line3' />
-            <img src={line_small} alt='sline' className='ww-sline1' />
-            <img src={line_small} alt='sline' className='ww-sline2' />
-            <img src={line_small} alt='sline' className='ww-sline3' />
-            <img src={line_small} alt='sline' className='ww-sline4' />
-            <img src={line_small} alt='sline' className='ww-sline5' />
-            <img src={line_small} alt='sline' className='ww-sline6' />
-            <img src={line_small} alt='sline' className='ww-sline7' />
-            <div className="ww-logo">
-            
-            </div>
-            
-              {//<Test /> 
-              }
+          <div className="page_size_complete page_shadow page_transp">
+            <Header />
+            <Labels />
           </div>
         </div>
       </SheetContext.Provider>

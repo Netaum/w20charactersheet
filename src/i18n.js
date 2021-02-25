@@ -4,13 +4,15 @@ import headerEn from "./assets/translations/en/header.json";
 import tribesEn from "./assets/translations/en/tribes.json";
 import auspicesEn from "./assets/translations/en/auspices.json";
 import breedsEn from "./assets/translations/en/breeds.json";
+import labelsEn from './assets/translations/en/labels.json';
 
 const resources = {
   en: {
     header: headerEn,
     tribes: tribesEn,
     auspices: auspicesEn,
-    breeds: breedsEn
+    breeds: breedsEn,
+    labels: labelsEn
   },
 };
 
