@@ -24,6 +24,14 @@
         "beginning_gifts": ["mothers_touch", "sense_wyrm", "spirit_speech"],
         "initial_renown":[
             {
+                "name": "glory",
+                "value": 0
+            },
+            {
+                "name": "honor",
+                "value": 0
+            },
+            {
                 "name": "wisdom",
                 "value": 3
             }
@@ -34,6 +42,14 @@
         "initial_rage": 3,
         "beginning_gifts": ["resist_pain", "scent_of_the_true_form", "truth_of_gaia"],
         "initial_renown":[
+            {
+                "name": "glory",
+                "value": 0
+            },
+            {
+                "name": "wisdom",
+                "value": 0
+            },
             {
                 "name": "honor",
                 "value": 3
@@ -52,6 +68,10 @@
             {
                 "name": "wisdom",
                 "value": 1
+            },
+            {
+                "name": "honor",
+                "value": 0
             }
         ]
     },
@@ -67,6 +87,10 @@
             {
                 "name": "honor",
                 "value": 1
+            },
+            {
+                "name": "wisdom",
+                "value": 0
             }
         ]
     }

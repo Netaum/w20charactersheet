@@ -431,19 +431,55 @@
   },
   "renown": {
     "glory": {
-      "permanent": 0,
-      "temporary": 0
+      "permanent": {
+        "fill": [],
+        "value":0,
+        "maxValue":10
+      },
+      "temporary": {
+        "fill": [],
+        "value":0,
+        "maxValue":10
+      }      
     },
     "honor": {
-      "permanent": 0,
-      "temporary": 0
+      "permanent": {
+        "fill": [],
+        "value":0,
+        "maxValue":10
+      },
+      "temporary": {
+        "fill": [],
+        "value":0,
+        "maxValue":10
+      }
     },
     "wisdom": {
-      "permanent": 0,
-      "temporary": 0
+      "permanent": {
+        "fill": [],
+        "value":0,
+        "maxValue":10
+      },
+      "temporary": {
+        "fill": [],
+        "value":0,
+        "maxValue":10
+      }
     }
   },
-  "rage": 0,
-  "gnosis": 0,
-  "willpower": 0
+  "rage": {
+    "fill": [],
+    "value":0,
+    "maxValue":10
+  },
+  "gnosis": {
+    "fill": [],
+    "value":0,
+    "maxValue":10
+  },
+  "willpower": {
+    "fill": [],
+    "value":0,
+    "maxValue":10
+  }
 }

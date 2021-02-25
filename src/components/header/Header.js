@@ -34,7 +34,7 @@ class Header extends React.Component {
       )
     );
     return (
-      <select onChange={(e) => this.handleHeader("breed", e.target.value)}>
+      <select onChange={(e) => this.handleHeader("breed", e.target.value, e)}>
         {itens}
       </select>
     );
@@ -43,12 +43,12 @@ class Header extends React.Component {
   auspices() {
     const { t } = this.props;
     const itens = [];
-    itens.push(<option key="none"></option>);
+    itens.push(<option key="none" data-key="none"></option>);
     Object.keys(auspices).forEach((f) =>
-      itens.push(<option key={f}>{t(`auspices:${f}`)}</option>)
+      itens.push(<option key={f} data-key={f}>{t(`auspices:${f}`)}</option>)
     );
     return (
-      <select onChange={(e) => this.handleHeader("auspice", e.target.value)}>
+      <select onChange={(e) => this.handleHeader("auspice", e.target.value, e)}>
         {itens}
       </select>
     );

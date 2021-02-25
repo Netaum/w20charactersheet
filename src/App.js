@@ -38,7 +38,8 @@ class App extends React.Component {
   chooseTribe(tribe) {
     const sheet = this.sheet;
     const s_tribe = tribes[tribe];
-    sheet['beginning_gifts'] = {};
+    if(!('beginning_gifts' in sheet))
+      sheet['beginning_gifts'] = {};
     sheet['beginning_gifts']['tribe'] = s_tribe.beginning_gifts;
     sheet['background_restrictions'] = s_tribe.background_restrictions;
 
@@ -59,10 +60,8 @@ class App extends React.Component {
         this.addBackground(new_back);
       });
     }
-
-    sheet.willpower = s_tribe.initial_willpower;
-
-    console.log(sheet);
+    sheet.willpower.value = s_tribe.initial_willpower;
+    this.fillArray(sheet.willpower, s_tribe.initial_willpower);
   }
 
   addBackground(background) {
@@ -88,10 +87,34 @@ class App extends React.Component {
   }
 
   chooseAuspice(auspice) {
+    const sheet = this.sheet;
+    const s_auspice = auspices[auspice];
+    if(!('beginning_gifts' in sheet))
+      sheet['beginning_gifts'] = {};
+    sheet['beginning_gifts']['auspice'] = s_auspice.beginning_gifts;
 
+    this.fillArray(sheet.rage, s_auspice.initial_rage);
+    sheet.rage.value = s_auspice.initial_rage;
+
+
+    s_auspice.initial_renown.forEach(r => {
+      sheet.renown[r.name].permanent.value = r.value;
+      this.fillArray(sheet.renown[r.name].permanent, r.value);
+      this.fillArray(sheet.renown[r.name].temporary, 0);
+    });
   }
 
   chooseBreed(breed) {
+    const sheet = this.sheet;
+    const s_breed = breeds[breed];
+    if(!('beginning_gifts' in sheet))
+      sheet['beginning_gifts'] = {};
+    sheet['beginning_gifts']['breed'] = s_breed.beginning_gifts;
+
+    this.fillArray(sheet.gnosis, s_breed.initial_gnosis);
+    sheet.gnosis.value = s_breed.initial_gnosis;
+
+    console.log(sheet);
 
   }
 
@@ -178,6 +201,10 @@ class App extends React.Component {
     v.sheet.header[headerName] = value;
     if(this.mode === "normal" && headerName === 'tribe')
       this.chooseTribe(key);
+    if(this.mode === "normal" && headerName === 'auspice')
+      this.chooseAuspice(key);
+    if(this.mode === "normal" && headerName === 'breed')
+      this.chooseBreed(key);
     this.updateState(v);
   }
 
