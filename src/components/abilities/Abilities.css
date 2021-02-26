@@ -1,0 +1,53 @@
+.ability_line1 {
+    top: 398px;
+}
+.ability_line2 {
+    top: 416px;
+}
+
+.ability_line3 {
+    top: 434px;
+}
+
+.ability_line4 {
+    top: 452px;
+}
+.ability_line5 {
+    top: 470px;
+}
+.ability_line6 {
+    top: 488px;
+}
+.ability_line7 {
+    top: 506px;
+}
+.ability_line8 {
+    top: 524px;
+}
+.ability_line9 {
+    top: 542px;
+}
+.ability_line10 {
+    top: 560px;
+}
+.ability_line11 {
+    top: 579px;
+}
+
+.ability_column1 {
+    left: 50px;
+}
+
+.ability_column2 {
+    left: 292px;
+}
+
+.ability_column3 {
+    left: 534px;
+}
+
+.ability {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    position: absolute;
+}

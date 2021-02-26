@@ -160,7 +160,7 @@
         "bonus": [],
         "xp": []
       },
-      "primal-urge": {
+      "primal_urge": {
         "startValue": 0,
         "maxValue": 5,
         "value": 0,
