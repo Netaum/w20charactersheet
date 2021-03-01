@@ -1,0 +1,40 @@
+.renown {
+    position: absolute;
+    letter-spacing: 2px;
+    font-size: 18px;
+    left: 60px;
+}
+.renown_line1 {
+    top: 825px;
+}
+
+.renown_line2 {
+    top: 881px;
+}
+
+.renown_line3 {
+    top: 939px;
+}
+
+.renown_label {
+  font-family: caflisch;
+  font-size: 25px;
+  position: absolute;
+  left: 55px;
+  font-weight: bold;
+  width: 200px;
+  z-index: 50;
+  text-align: center;
+}
+
+.renown_label_line1 {
+    top: 782px;
+}
+
+.renown_label_line2 {
+    top: 841px;
+}
+
+.renown_label_line3 {
+    top: 900px;
+}

@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import Labels from "./components/labels/Labels";
 import Attributes from './components/attributes/Attributes';
 import Abilities from './components/abilities/Abilities';
+import Renown from './components/renown/Renown';
 import "./App.css";
 import Sheet from "./contexts/Sheet.json";
 import SheetContext from "./contexts/SheetContext";
@@ -291,6 +292,9 @@ class App extends React.Component {
   }
 
   chageValueNormalMode(section, selectedValue) {
+    if(section.sectionName === "renown")
+      return;
+
     const startValue = section.startValue ? section.startValue : 0;
     selectedValue = selectedValue >= startValue ? selectedValue : startValue;
 
@@ -387,6 +391,7 @@ class App extends React.Component {
             <Labels />
             <Attributes />
             <Abilities />
+            <Renown />
           </div>
         </div>
       </SheetContext.Provider>

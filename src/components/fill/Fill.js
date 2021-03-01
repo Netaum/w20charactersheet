@@ -13,6 +13,7 @@ class Fill extends React.Component {
         this.left = props.left;
         this.top = props.top;
         this.size = props.size ?? "12px";
+        this.letter_spacing = props.letter_spacing ?? "normal";
 
         this.fillChar = "e";
         this.emptyChar = "d";
@@ -36,7 +37,8 @@ class Fill extends React.Component {
         const spanStyle = {
             left: this.left,
             top: this.top,
-            fontSize: this.size
+            fontSize: this.size,
+            letterSpacing: this.letter_spacing
         };
 
         return (
