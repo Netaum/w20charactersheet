@@ -5,9 +5,12 @@ import Attributes from './components/attributes/Attributes';
 import Abilities from './components/abilities/Abilities';
 import Renown from './components/renown/Renown';
 import Energy from './components/energy/Energy';
+import Health from './components/health/Health';
 import "./App.css";
 import Sheet from "./contexts/Sheet.json";
 import SheetContext from "./contexts/SheetContext";
+import logo from './assets/images/wwlogo.svg';
+
 
 import auspices from "./assets/tables/auspices.json";
 import breeds from "./assets/tables/breeds.json";
@@ -397,13 +400,15 @@ class App extends React.Component {
     return (
       <SheetContext.Provider value={this.state}>
         <div className="App">
-          <div className="page_size_complete page_shadow page_transp">
+          <img src={logo} alt='Logo' className="app_logo" />
+          <div className="page_size_complete page_shadow ">
             <Header />
             <Labels />
             <Attributes />
             <Abilities />
             <Renown />
             <Energy />
+            <Health />
           </div>
         </div>
       </SheetContext.Provider>

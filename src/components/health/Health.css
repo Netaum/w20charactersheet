@@ -1,0 +1,21 @@
+.health_bar {
+    font-family: wod;
+    padding-top: 1px;
+    vertical-align: bottom;
+}
+
+.health_table {
+  top: 785px;
+  left: 545px;
+  position: absolute;
+  width: 188px;
+  text-align: justify;
+}
+
+.health_title {
+    width: 70%;
+}
+
+.health_value {
+    width: 30%;
+}

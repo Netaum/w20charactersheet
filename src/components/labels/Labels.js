@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/images/wwlogo.svg';
 import border from '../../assets/images/wwborder.svg';
 import line from '../../assets/images/wwline.svg';
 import line_small from '../../assets/images/wwline-small.svg';
@@ -12,11 +11,11 @@ function Labels() {
     const { t } = useTranslation();
     return (
         <div>
+
             <div className='ww_base ww_border' >
                 <img src={border} alt='border' />
             </div>
 
-            <img src={logo} alt='Logo' />
             <img src={line} alt='Line1' className='ww-line1' />
             <img src={line} alt='Line2' className='ww-line2' />
             <img src={line} alt='Line3' className='ww-line3' />
