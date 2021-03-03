@@ -25,13 +25,13 @@ class Energy extends React.Component {
                     <span className='wod energy energy_line1'>aaaaaaaaaa</span>
                 </div>
                 <div>
-                    <Fill section={this.gnosis} left="302px" top="887px" size="18px" letter_spacing="2px" />
+                    <Fill section={this.gnosis} left="302px" top="888px" size="18px" letter_spacing="2px" />
                 </div>
                 <div>
                     <span className='wod energy energy_line2'>aaaaaaaaaa</span>
                 </div>
                 <div>
-                    <Fill section={this.willpower} left="302px" top="987px" size="18px" letter_spacing="2px" />
+                    <Fill section={this.willpower} left="302px" top="991px" size="18px" letter_spacing="2px" />
                 </div>
                 <div>
                     <span className='wod energy energy_line3'>aaaaaaaaaa</span>
