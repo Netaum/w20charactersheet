@@ -4,6 +4,7 @@ import Labels from "./components/labels/Labels";
 import Attributes from './components/attributes/Attributes';
 import Abilities from './components/abilities/Abilities';
 import Renown from './components/renown/Renown';
+import Energy from './components/energy/Energy';
 import "./App.css";
 import Sheet from "./contexts/Sheet.json";
 import SheetContext from "./contexts/SheetContext";
@@ -251,14 +252,23 @@ class App extends React.Component {
     return backgrounds;
   }
 
-  loadSection(sectionName, sectionType, sectionAttributeName) {
+  loadSection(sectionName,
+              sectionType = null,
+              sectionAttributeName = null) {
     const v = this;
 
-    let section = v.sheet[sectionName][sectionType][sectionAttributeName];
+    let section = null;
 
-    section["parent"] = v.sheet[sectionName];
-    section["type"] = v.sheet[sectionName][sectionType];
-    section["sectionName"] = sectionName;
+    if(sectionType !== null) { 
+      section = v.sheet[sectionName][sectionType][sectionAttributeName];
+      section["parent"] = v.sheet[sectionName];
+      section["type"] = v.sheet[sectionName][sectionType];
+      section["sectionName"] = sectionName;
+    } 
+    else {
+      section = v.sheet[sectionName];
+      section["sectionName"] = sectionName;
+    }
 
     this.fillArray(section, section.value);
     this.updateState(v);
@@ -292,7 +302,8 @@ class App extends React.Component {
   }
 
   chageValueNormalMode(section, selectedValue) {
-    if(section.sectionName === "renown")
+    const noChangeNormalMode = ['renown', 'rage', 'gnosis', 'willpower'];
+    if(noChangeNormalMode.includes(section.sectionName))
       return;
 
     const startValue = section.startValue ? section.startValue : 0;
@@ -392,6 +403,7 @@ class App extends React.Component {
             <Attributes />
             <Abilities />
             <Renown />
+            <Energy />
           </div>
         </div>
       </SheetContext.Provider>

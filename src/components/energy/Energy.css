@@ -1,0 +1,18 @@
+.energy {
+    position: absolute;
+    letter-spacing: 2px;
+    font-size: 18px;
+    left: 302px;
+}
+
+.energy_line1 {
+    top: 805px;
+}
+
+.energy_line2 {
+    top: 905px;
+}
+
+.energy_line3 {
+    top: 1005px;
+}

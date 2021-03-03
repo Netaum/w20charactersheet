@@ -470,16 +470,22 @@
   "rage": {
     "fill": [],
     "value":0,
-    "maxValue":10
+    "maxValue":10,
+    "bonus":[],
+    "xp":[]
   },
   "gnosis": {
     "fill": [],
     "value":0,
-    "maxValue":10
+    "maxValue":10,
+    "bonus":[],
+    "xp":[]
   },
   "willpower": {
     "fill": [],
     "value":0,
-    "maxValue":10
+    "maxValue":10,
+    "bonus":[],
+    "xp":[]
   }
 }
