@@ -11,7 +11,7 @@ class Header extends React.Component {
 
   handleHeader = (headerName, value, event) => {
     let key = null;
-    if (event !== null) {
+    if (event != null) {
       for (let node of event.target.children) {
         if (node.value === value) {
           key = node.getAttribute("data-key");

@@ -1,0 +1,60 @@
+.background_line {
+    z-index: 10;
+    width: 155px;
+    left: 60px;
+    position: absolute;
+    height: 0px;
+    border: none;
+    border-top: 1px solid black;
+}
+
+.background_line_1 {
+    top: 672px
+}
+
+.background_line_2 {
+    top: 690px
+}
+
+.background_line_3 {
+    top: 708px
+}
+
+.background_line_4 {
+    top: 726px
+}
+
+.background_line_5 {
+    top: 744px
+}
+
+.background_select {
+    position: absolute;
+    left: 62px;
+    z-index: 9;
+}
+
+.background_font {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.background_select_1 {
+    top: 662px;
+}
+
+.background_select_2 {
+    top: 680px;
+}
+
+.background_select_3 {
+    top: 698px;
+}
+
+.background_select_4 {
+    top: 716px;
+}
+
+.background_select_5 {
+    top: 734px;
+}

@@ -6,6 +6,8 @@ import Abilities from './components/abilities/Abilities';
 import Renown from './components/renown/Renown';
 import Energy from './components/energy/Energy';
 import Health from './components/health/Health';
+import Background from './components/background/Background';
+
 import "./App.css";
 import Sheet from "./contexts/Sheet.json";
 import SheetContext from "./contexts/SheetContext";
@@ -15,6 +17,7 @@ import logo from './assets/images/wwlogo.svg';
 import auspices from "./assets/tables/auspices.json";
 import breeds from "./assets/tables/breeds.json";
 import tribes from "./assets/tables/tribes.json";
+import values from './assets/tables/values.json';
 
 class App extends React.Component {
   state = {
@@ -36,8 +39,47 @@ class App extends React.Component {
     chooseTribe: this.chooseTribe,
     chooseAuspice: this.chooseAuspice,
     chooseBreed: this.chooseBreed,
-    addBackground: this.addBackground,
+    getBackgroundList: this.getBackgroundList,
+    getBackground: this.getBackground,
+    clearBackgrounds: this.clearBackgrounds,
+    changeBackground: this.changeBackground,
   };
+
+  changeBackground(name, index) {
+    const bg = this.sheet.advantages.backgrounds.itens.filter(f => f.name === name);
+    if (bg.length > 0) {
+      return;
+    }
+    this.sheet.advantages.backgrounds.itens[index-1].name = name;
+    this.updateState(this);
+  }
+
+  clearBackgrounds(sheet){
+    sheet.advantages.backgrounds.itens.forEach(f => {
+      f.name = "";
+      f.value = 0;
+      f.fill = [false, false, false, false, false];
+      f.bonus = [];
+      f.xp = [];
+    });
+    sheet.advantages.backgrounds.control.total = 0;
+  }
+
+  getBackgroundList() {
+    const sheet = this.sheet;
+
+    let bgList = values.backgrounds;
+
+    if(!sheet.background_restrictions)
+      return bgList;
+
+    return bgList.filter(f => !sheet.background_restrictions.includes(f));
+  }
+
+  getBackground(index) {
+    const sheet = this.sheet;
+    return sheet.advantages.backgrounds.itens[index - 1];
+  }
 
   chooseTribe(tribe) {
     const sheet = this.sheet;
@@ -46,47 +88,20 @@ class App extends React.Component {
     sheet["beginning_gifts"]["tribe"] = s_tribe.beginning_gifts;
     sheet["background_restrictions"] = s_tribe.background_restrictions;
 
-    sheet.advantages.backgrounds.itens = [];
-    sheet.advantages.backgrounds.control.total = 0;
+    this.clearBackgrounds(sheet);
 
     if ("background_requisites" in s_tribe) {
-      s_tribe.background_requisites.forEach((b) => {
-        const new_back = {
-          name: b.name,
-          value: b.min_value,
-          maxValue: 5,
-          fill: [],
-          bonus: [],
-          xp: [],
-        };
-        this.fillArray(new_back, b.min_value);
-        this.addBackground(new_back);
+      s_tribe.background_requisites.forEach((b, i) => {
+
+        let back = sheet.advantages.backgrounds.itens[i];
+        back.name = b.name;
+        back.value = b.min_value;
+        sheet.advantages.backgrounds.control.total += b.min_value;
+        this.fillArray(back, b.min_value);
       });
     }
     sheet.willpower.value = s_tribe.initial_willpower;
     this.fillArray(sheet.willpower, s_tribe.initial_willpower);
-  }
-
-  addBackground(background) {
-    const sheet = this.sheet;
-
-    const backgrounds = sheet.advantages.backgrounds.itens.filter(
-      (f) => f.name === background.name
-    );
-
-    if (backgrounds.length > 0) {
-      return;
-    }
-
-    const total = sheet.advantages.backgrounds.control.total + background.value;
-
-    if (this.mode === "normal" && total >= 5) {
-      return;
-    }
-
-    sheet.advantages.backgrounds.itens.push(background);
-    sheet.advantages.backgrounds.control.total = total;
-
     this.updateState(this);
   }
 
@@ -114,8 +129,6 @@ class App extends React.Component {
 
     this.fillArray(sheet.gnosis, s_breed.initial_gnosis);
     sheet.gnosis.value = s_breed.initial_gnosis;
-
-    console.log(sheet);
   }
 
   addGift(gift) {
@@ -140,7 +153,6 @@ class App extends React.Component {
     sheet.advantages.gifts.control.total[gift.level] += 1;
 
     this.updateState(this);
-    console.log(sheet.advantages.gifts);
   }
 
   changeFillMode(fillMode) {
@@ -400,12 +412,13 @@ class App extends React.Component {
     return (
       <SheetContext.Provider value={this.state}>
         <div className="App">
-          <img src={logo} alt='Logo' className="app_logo" />
-          <div className="page_size_complete page_shadow ">
+          <div className="page_size_complete page_shadow">
+            <img src={logo} alt='Logo' className="app_logo" />
             <Header />
             <Labels />
             <Attributes />
             <Abilities />
+            <Background />
             <Renown />
             <Energy />
             <Health />

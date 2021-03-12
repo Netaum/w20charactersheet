@@ -366,7 +366,8 @@
     "backgrounds": {
       "itens":[
         {
-          "name":"b1",
+          "id": 1,
+          "name":"",
           "value": 0,
           "maxValue": 5,
           "fill":[],
@@ -374,7 +375,8 @@
           "xp":[]
         },
         {
-          "name":"b2",
+          "id": 2,
+          "name":"resources",
           "value": 0,
           "maxValue": 5,
           "fill":[],
@@ -382,7 +384,8 @@
           "xp":[]
         },
         {
-          "name":"b3",
+          "id": 3,
+          "name":"",
           "value": 0,
           "maxValue": 5,
           "fill":[],
@@ -390,7 +393,8 @@
           "xp":[]
         },
         {
-          "name":"b4",
+          "id": 4,
+          "name":"",
           "value": 0,
           "maxValue": 5,
           "fill":[],
@@ -398,7 +402,8 @@
           "xp":[]
         },
         {
-          "name":"b5",
+          "id": 5,
+          "name":"",
           "value": 0,
           "maxValue": 5,
           "fill":[],

@@ -7,6 +7,7 @@ import breedsEn from "./assets/translations/en/breeds.json";
 import labelsEn from './assets/translations/en/labels.json';
 import attributesEn from './assets/translations/en/attributes.json';
 import abilitiesEn from './assets/translations/en/abilities.json';
+import backgroundsEn from './assets/translations/en/backgrounds.json';
 
 const resources = {
   en: {
@@ -16,7 +17,8 @@ const resources = {
     breeds: breedsEn,
     labels: labelsEn,
     attributes: attributesEn,
-    abilities: abilitiesEn
+    abilities: abilitiesEn,
+    backgrounds: backgroundsEn
   },
 };
 
