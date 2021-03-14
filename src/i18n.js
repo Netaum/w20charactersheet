@@ -8,6 +8,7 @@ import labelsEn from './assets/translations/en/labels.json';
 import attributesEn from './assets/translations/en/attributes.json';
 import abilitiesEn from './assets/translations/en/abilities.json';
 import backgroundsEn from './assets/translations/en/backgrounds.json';
+import healthEn from './assets/translations/en/health.json';
 
 const resources = {
   en: {
@@ -18,7 +19,8 @@ const resources = {
     labels: labelsEn,
     attributes: attributesEn,
     abilities: abilitiesEn,
-    backgrounds: backgroundsEn
+    backgrounds: backgroundsEn,
+    health: healthEn
   },
 };
 

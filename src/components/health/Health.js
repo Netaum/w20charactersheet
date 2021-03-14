@@ -9,37 +9,37 @@ function Health() {
             <table>
                 <tbody>
                     <tr>
-                        <td className="health_title"><span>Bruided</span></td>
+                        <td className="health_title"><span>{t('health:bruised')}</span></td>
                         <td className="health_value"><span></span></td>
                         <td><span className="health_bar">a</span></td>
                     </tr>
                     <tr>
-                        <td className="health_title"><span>Hurt</span></td>
+                        <td className="health_title"><span>{t('health:hurt')}</span></td>
                         <td className="health_value"><span>-1</span></td>
                         <td><span className="health_bar">a</span></td>
                     </tr>
                     <tr>
-                        <td className="health_title"><span>Injuried</span></td>
+                        <td className="health_title"><span>{t('health:injuried')}</span></td>
                         <td className="health_value"><span>-1</span></td>
                         <td><span className="health_bar">a</span></td>
                     </tr>
                     <tr>
-                        <td className="health_title"><span>Wonded</span></td>
+                        <td className="health_title"><span>{t('health:wounded')}</span></td>
                         <td className="health_value"><span>-2</span></td>
                         <td><span className="health_bar">a</span></td>
                     </tr>
                     <tr>
-                        <td className="health_title"><span>Mauled</span></td>
+                        <td className="health_title"><span>{t('health:mauled')}</span></td>
                         <td className="health_value"><span>-2</span></td>
                         <td><span className="health_bar">a</span></td>
                     </tr>
                     <tr>
-                        <td className="health_title"><span>Crippled</span></td>
+                        <td className="health_title"><span>{t('health:crippled')}</span></td>
                         <td className="health_value"><span>-5</span></td>
                         <td><span className="health_bar">a</span></td>
                     </tr>
                     <tr>
-                        <td className="health_title"><span>Incapacitated</span></td>
+                        <td className="health_title"><span>{t('health:incapacitated')}</span></td>
                         <td className="health_value"><span></span></td>
                         <td><span className="health_bar">a</span></td>
                     </tr>
